@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "0c1455db-d05c-4d94-850d-2a81356c17f2",
-		"name": "Betclic tests",
+		"_postman_id": "899c2508-6271-4a4b-b74b-3acd2354aec3",
+		"name": "Betclic tests Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b877468a-9383-4114-9bf8-03660528c639",
+						"id": "0d52b866-6b24-48e5-8cf0-8f4ac16e571f",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -95,7 +95,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e7bf1bda-b3ee-41c6-9a51-8c91756560fe",
+						"id": "b48b135b-2744-4107-a249-e2b2966b3596",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -175,7 +175,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "22c7a5d5-8896-4d28-8a1c-412d2057274e",
+						"id": "e1faa255-0e1a-4638-8de4-a132806f0702",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -256,7 +256,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c6d5a85d-5d33-40d1-9099-b678a2ad2768",
+						"id": "f6636c4b-baf3-49b4-8ef6-1ed624b868bd",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -295,7 +295,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://offer.cdn.betclic.fr/api/pub/v4/even/popular?application=2&countrycode=fr&language=fr&sitecode=frfr",
+					"raw": "https://offer.cdn.betclic.fr/api/pub/v4/events/popular?application=2&countrycode=fr&language=fr&sitecode=frfr",
 					"protocol": "https",
 					"host": [
 						"offer",
@@ -307,7 +307,7 @@
 						"api",
 						"pub",
 						"v4",
-						"even",
+						"events",
 						"popular"
 					],
 					"query": [
