@@ -1,0 +1,337 @@
+{
+	"info": {
+		"_postman_id": "0c1455db-d05c-4d94-850d-2a81356c17f2",
+		"name": "Betclic tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Odds comparator",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b877468a-9383-4114-9bf8-03660528c639",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"",
+							"    for(obj of pm.response.json() ){",
+							"",
+							"if(obj.markets[0].selections.length==3){",
+							"console.log(\"-----------\"+obj.markets[0].selections[0].name+\"-----------\")",
+							"console.log(\"Home : \"+obj.markets[0].selections[0].odds)",
+							"console.log(\"null : \"+obj.markets[0].selections[1].odds)",
+							"console.log(\"outside : \"+obj.markets[0].selections[2].odds)",
+							"",
+							"}",
+							"} ",
+							"});",
+							"",
+							"",
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(404);",
+							"",
+							" console.log(\"La page n'a pas été trouvée\")  ",
+							"});",
+							"",
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(504);",
+							"",
+							" console.log(\"La page n'a pas été trouvée\")  ",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://offer.cdn.betclic.fr/api/pub/v4/events/popular?application=2&countrycode=fr&language=fr&sitecode=frfr",
+					"protocol": "https",
+					"host": [
+						"offer",
+						"cdn",
+						"betclic",
+						"fr"
+					],
+					"path": [
+						"api",
+						"pub",
+						"v4",
+						"events",
+						"popular"
+					],
+					"query": [
+						{
+							"key": "application",
+							"value": "2"
+						},
+						{
+							"key": "countrycode",
+							"value": "fr"
+						},
+						{
+							"key": "language",
+							"value": "fr"
+						},
+						{
+							"key": "sitecode",
+							"value": "frfr"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Name and ID of all matchs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e7bf1bda-b3ee-41c6-9a51-8c91756560fe",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"for(obj of pm.response.json() ){",
+							"",
+							"if(obj.markets[0].selections.length==3){",
+							"console.log(\"Match : \"+obj.name)",
+							"console.log(\"ID du match : \"+obj.id)",
+							"",
+							"} ",
+							"} ",
+							"",
+							"",
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(404);",
+							"",
+							" console.log(\"La page n'a pas été trouvée\")  ",
+							"});",
+							"",
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(504);",
+							"",
+							" console.log(\"La page n'a pas été trouvée\")  ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://offer.cdn.betclic.fr/api/pub/v4/events/popular?application=2&countrycode=fr&language=fr&sitecode=frfr",
+					"protocol": "https",
+					"host": [
+						"offer",
+						"cdn",
+						"betclic",
+						"fr"
+					],
+					"path": [
+						"api",
+						"pub",
+						"v4",
+						"events",
+						"popular"
+					],
+					"query": [
+						{
+							"key": "application",
+							"value": "2"
+						},
+						{
+							"key": "countrycode",
+							"value": "fr"
+						},
+						{
+							"key": "language",
+							"value": "fr"
+						},
+						{
+							"key": "sitecode",
+							"value": "frfr"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Market matchs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "22c7a5d5-8896-4d28-8a1c-412d2057274e",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"",
+							"",
+							"for(obj of pm.response.json() ){",
+							"",
+							"if(obj.markets[0].selections.length==3){",
+							"console.log(\"Match : \"+obj.name)",
+							"console.log(\"Compétion : \"+obj.competition.name)",
+							"",
+							"} ",
+							"} ",
+							"});",
+							"",
+							"",
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(404);",
+							"",
+							" console.log(\"La page n'a pas été trouvée\")  ",
+							"});",
+							"",
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(504);",
+							"",
+							" console.log(\"La page n'a pas été trouvée\")  ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://offer.cdn.betclic.fr/api/pub/v4/events/popular?application=2&countrycode=fr&language=fr&sitecode=frfr",
+					"protocol": "https",
+					"host": [
+						"offer",
+						"cdn",
+						"betclic",
+						"fr"
+					],
+					"path": [
+						"api",
+						"pub",
+						"v4",
+						"events",
+						"popular"
+					],
+					"query": [
+						{
+							"key": "application",
+							"value": "2"
+						},
+						{
+							"key": "countrycode",
+							"value": "fr"
+						},
+						{
+							"key": "language",
+							"value": "fr"
+						},
+						{
+							"key": "sitecode",
+							"value": "frfr"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "The competition, the competitors, and the number of markets.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c6d5a85d-5d33-40d1-9099-b678a2ad2768",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"  var nombreDeMarchés = 0;",
+							"for(obj of pm.response.json() ){",
+							"",
+							"if(obj.markets[0].selections.length==3){",
+							"console.log(\"Compétion : \"+obj.competition.name)",
+							"console.log(\"L'adversaire est : \"+obj.markets[0].selections[2].name)",
+							"",
+							"nombreDeMarchés++",
+							"}",
+							"",
+							"}",
+							"console.log(\"Il y a \"+nombreDeMarchés+\" marchés\") ",
+							"});",
+							"",
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(404);",
+							"",
+							" console.log(\"La page n'a pas été trouvée\")  ",
+							"});",
+							"",
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(504);",
+							"",
+							" console.log(\"La page n'a pas été trouvée\")  ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://offer.cdn.betclic.fr/api/pub/v4/even/popular?application=2&countrycode=fr&language=fr&sitecode=frfr",
+					"protocol": "https",
+					"host": [
+						"offer",
+						"cdn",
+						"betclic",
+						"fr"
+					],
+					"path": [
+						"api",
+						"pub",
+						"v4",
+						"even",
+						"popular"
+					],
+					"query": [
+						{
+							"key": "application",
+							"value": "2"
+						},
+						{
+							"key": "countrycode",
+							"value": "fr"
+						},
+						{
+							"key": "language",
+							"value": "fr"
+						},
+						{
+							"key": "sitecode",
+							"value": "frfr"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
